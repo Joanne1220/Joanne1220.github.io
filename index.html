@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joanne · Jinhui（金汇）的个人主页，连接金融、全球贸易与长期价值。" />
+  <title>Joanne · Jinhui | Personal Website</title>
+  <style>
+    :root{
+      --pink:#e77aa3;
+      --pink-2:#f5b8cf;
+      --pink-dark:#8d2f59;
+      --cream:#fff9fb;
+      --text:#2f2027;
+      --muted:#7d6670;
+      --white:#ffffff;
+      --line:rgba(141,47,89,.13);
+      --shadow:0 20px 60px rgba(141,47,89,.15);
+    }
+
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 85% 5%,rgba(231,122,163,.18),transparent 30%),
+        radial-gradient(circle at 8% 30%,rgba(245,184,207,.22),transparent 28%),
+        linear-gradient(135deg,#fffdfd,#fff3f8);
+      line-height:1.75;
+    }
+
+    body.lang-en .zh{display:none}
+    body:not(.lang-en) .en{display:none}
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1120px,calc(100% - 34px));margin:auto}
+
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:22px 0;position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(14px);
+      background:rgba(255,249,251,.78);
+      border-bottom:1px solid rgba(141,47,89,.07);
+    }
+    .brand{font-weight:900;color:var(--pink-dark);letter-spacing:.5px;font-size:22px}
+    .nav-right{display:flex;align-items:center;gap:18px}
+    .links{display:flex;gap:18px;font-weight:700;font-size:14px}
+    .lang-btn{
+      border:1px solid var(--line);background:white;color:var(--pink-dark);
+      padding:9px 14px;border-radius:999px;font-weight:800;cursor:pointer;
+    }
+
+    .hero{
+      min-height:82vh;display:grid;grid-template-columns:1.08fr .92fr;
+      gap:56px;align-items:center;padding:68px 0 86px;
+    }
+    .eyebrow{
+      color:var(--pink-dark);font-size:13px;font-weight:900;
+      letter-spacing:2.8px;text-transform:uppercase;
+    }
+    h1{
+      margin:12px 0 12px;font-size:clamp(56px,8vw,102px);
+      line-height:.96;color:var(--pink-dark);
+    }
+    .subtitle{
+      font-size:22px;font-weight:800;color:#5c3949;margin-bottom:18px;
+    }
+    .lead{font-size:19px;color:var(--muted);max-width:680px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:13px 22px;border-radius:999px;font-weight:900;
+      transition:.2s ease;border:1px solid transparent;
+    }
+    .btn.primary{background:var(--pink-dark);color:white;box-shadow:var(--shadow)}
+    .btn.secondary{background:white;color:var(--pink-dark);border-color:var(--line)}
+    .btn:hover{transform:translateY(-2px)}
+
+    .photo-card{
+      position:relative;border-radius:32px;overflow:hidden;
+      box-shadow:var(--shadow);background:#f6d8e4;
+      min-height:560px;
+    }
+    .photo-card img{
+      width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+    }
+    .photo-overlay{
+      position:absolute;inset:auto 20px 20px 20px;
+      padding:18px 20px;border-radius:18px;color:white;
+      background:linear-gradient(135deg,rgba(54,25,38,.80),rgba(141,47,89,.72));
+      backdrop-filter:blur(8px);
+    }
+    .photo-overlay strong{display:block;font-size:20px}
+    .photo-overlay span{font-size:14px;opacity:.92}
+
+    section{padding:78px 0}
+    .section-title{font-size:38px;color:var(--pink-dark);margin:0 0 28px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .card{
+      padding:28px;border-radius:24px;background:rgba(255,255,255,.88);
+      border:1px solid var(--line);box-shadow:0 14px 36px rgba(141,47,89,.08);
+    }
+    .card small{
+      display:block;color:var(--pink-dark);font-size:12px;
+      letter-spacing:1.4px;text-transform:uppercase;font-weight:900;margin-bottom:8px;
+    }
+    .card h3{font-size:21px;margin:0 0 8px}
+    .card p{margin:0;color:var(--muted)}
+
+    .timeline{position:relative;margin-top:10px}
+    .timeline:before{
+      content:"";position:absolute;left:14px;top:10px;bottom:10px;width:2px;
+      background:linear-gradient(var(--pink),var(--pink-2));
+    }
+    .item{position:relative;padding-left:48px;margin-bottom:28px}
+    .item:before{
+      content:"";position:absolute;left:6px;top:9px;width:18px;height:18px;
+      border-radius:50%;background:white;border:5px solid var(--pink);
+      box-shadow:0 0 0 5px rgba(231,122,163,.12);
+    }
+    .item h3{margin:0 0 5px;font-size:21px}
+    .item p{margin:0;color:var(--muted)}
+
+    .contact{
+      padding:62px 26px;border-radius:30px;text-align:center;color:white;
+      background:linear-gradient(135deg,#ec8eb2,#8d2f59);
+      box-shadow:var(--shadow);
+    }
+    .contact h2{margin:0 0 10px;font-size:39px}
+    .contact p{margin:0 auto 22px;max-width:650px;opacity:.94}
+    .contact .btn{background:white;color:var(--pink-dark)}
+    .contact .btn.secondary{background:rgba(255,255,255,.14);color:white;border-color:rgba(255,255,255,.32)}
+
+    footer{text-align:center;padding:30px 0 44px;color:var(--muted);font-size:14px}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:800px){
+      .links{display:none}
+      .hero{grid-template-columns:1fr;min-height:auto;padding-top:38px}
+      .photo-card{min-height:460px}
+      .grid{grid-template-columns:1fr}
+      section{padding:56px 0}
+      h1{font-size:64px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">JOANNE · JINHUI</div>
+      <div class="nav-right">
+        <div class="links">
+          <a href="#about"><span class="zh">关于我</span><span class="en">About</span></a>
+          <a href="#experience"><span class="zh">经历</span><span class="en">Experience</span></a>
+          <a href="#contact"><span class="zh">联系</span><span class="en">Contact</span></a>
+        </div>
+        <button class="lang-btn" id="langBtn">EN</button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero reveal">
+        <div>
+          <div class="eyebrow">Hong Kong · Singapore</div>
+          <h1>Joanne</h1>
+          <div class="subtitle">Jinhui（金汇）</div>
+          <p class="lead zh">
+            拥有金融教育背景与财富管理经验，目前经营面向全球批发市场的在线商店。
+            我关注跨境商业、金融市场与长期价值，也期待连接更多优秀的人与机会。
+          </p>
+          <p class="lead en">
+            With an academic background in finance and experience in wealth management,
+            I currently run an online store serving the global wholesale market.
+            I focus on cross-border business, financial markets, and long-term value creation.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://wa.me/6586436037" target="_blank" rel="noopener">
+              <span class="zh">WhatsApp 联系</span><span class="en">Contact on WhatsApp</span>
+            </a>
+            <a class="btn secondary" href="https://www.instagram.com/xovilkikum/" target="_blank" rel="noopener">
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <img src="profile.jpg" alt="Joanne portrait">
+          <div class="photo-overlay">
+            <strong>Joanne · Jinhui</strong>
+            <span class="zh">金融 · 全球贸易 · 长期价值</span>
+            <span class="en">Finance · Global Trade · Long-term Value</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="reveal">
+        <h2 class="section-title"><span class="zh">关于我</span><span class="en">About Me</span></h2>
+        <div class="grid">
+          <article class="card">
+            <small>Location</small>
+            <h3>HK / SG</h3>
+            <p class="zh">目前生活及往返于香港与新加坡。</p>
+            <p class="en">Currently based between Hong Kong and Singapore.</p>
+          </article>
+          <article class="card">
+            <small>Current Work</small>
+            <h3 class="zh">全球批发在线商店</h3>
+            <h3 class="en">Global Wholesale Online Store</h3>
+            <p class="zh">经营服务全球批发市场的在线商店，连接产品、客户与跨境商业机会。</p>
+            <p class="en">Operating an online store that connects products, clients, and cross-border wholesale opportunities.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="reveal">
+        <h2 class="section-title"><span class="zh">教育与工作经历</span><span class="en">Education & Experience</span></h2>
+        <div class="timeline">
+          <div class="item">
+            <h3 class="zh">NUS 金融硕士</h3>
+            <h3 class="en">Master of Finance, NUS</h3>
+            <p class="zh">在新加坡国立大学完成金融硕士学习，建立系统的金融、市场分析与资产配置基础。</p>
+            <p class="en">Completed a Master of Finance at the National University of Singapore, building a strong foundation in financial analysis, markets, and asset allocation.</p>
+          </div>
+          <div class="item">
+            <h3 class="zh">财富管理总监</h3>
+            <h3 class="en">Wealth Management Director</h3>
+            <p class="zh">积累客户关系、财富规划、资产配置与金融服务管理经验。</p>
+            <p class="en">Built experience in client relationships, wealth planning, asset allocation, and financial service management.</p>
+          </div>
+          <div class="item">
+            <h3 class="zh">全球批发在线商店</h3>
+            <h3 class="en">Global Wholesale Online Business</h3>
+            <p class="zh">目前专注跨境批发与在线业务，连接不同市场中的产品与合作机会。</p>
+            <p class="en">Currently focused on cross-border wholesale and online business, connecting products and partnership opportunities across markets.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal">
+        <div class="contact">
+          <h2><span class="zh">保持联系</span><span class="en">Let’s Connect</span></h2>
+          <p class="zh">欢迎就商业、金融、全球贸易及合作机会与我联系。</p>
+          <p class="en">Feel free to reach out regarding business, finance, global trade, and collaboration opportunities.</p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn" href="https://wa.me/6586436037" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn secondary" href="https://www.instagram.com/xovilkikum/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 Joanne · Jinhui（金汇）. All rights reserved.</footer>
+  </div>
+
+  <script>
+    const btn = document.getElementById('langBtn');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('lang-en');
+      btn.textContent = document.body.classList.contains('lang-en') ? '中文' : 'EN';
+      document.documentElement.lang = document.body.classList.contains('lang-en') ? 'en' : 'zh-CN';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

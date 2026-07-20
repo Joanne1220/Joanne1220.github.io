@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Joanne 网站实时留言板">
+<title>Joanne | 留言板</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="loader"><div class="mark">Joanne</div></div>
+<header class="site-header"><div class="shell header-inner">
+<a class="logo" href="../">Joanne</a>
+<nav class="nav">
+<a href="../"><span class="zh">首页</span><span class="en">Home</span></a>
+<a href="../about/"><span class="zh">关于</span><span class="en">About</span></a>
+<a href="../business/"><span class="zh">业务</span><span class="en">Business</span></a>
+<a href="../journey/"><span class="zh">经历</span><span class="en">Journey</span></a>
+<a href="../lifestyle/"><span class="zh">生活方式</span><span class="en">Lifestyle</span></a>
+<a href="../gallery/"><span class="zh">相册</span><span class="en">Gallery</span></a>
+<a href="../journal/"><span class="zh">观点</span><span class="en">Journal</span></a>
+<a href="../overnight/"><span class="zh">过夜使者 / 叛军</span><span class="en">Overnight Rebels</span></a>
+<a class="active" href="./"><span class="zh">留言板</span><span class="en">Guestbook</span></a>
+<a href="../contact/"><span class="zh">联系</span><span class="en">Contact</span></a>
+</nav>
+<div class="tools"><button class="tool" data-lang-toggle>EN</button><button class="tool" data-theme-toggle>☾</button></div>
+</div></header>
+
+<main><div class="shell">
+<section class="page-hero reveal">
+<div class="eyebrow">Live · Anonymous · Shared</div>
+<h1 class="zh">留言板</h1><h1 class="en">Guestbook</h1>
+<p class="zh">无需注册或登录。填写昵称和留言后即可发布，所有正在浏览页面的人都会实时看到更新。</p>
+<p class="en">No account or visible login required. Enter a nickname and message; updates appear live for everyone viewing the page.</p>
+</section>
+
+<section class="reveal">
+<div id="gbOffline" class="gb-offline" hidden>留言板尚未连接。</div>
+<div class="gb-layout">
+<aside class="panel gb-compose">
+<h3 class="zh">留下你的想法</h3><h3 class="en">Leave a Message</h3>
+<p class="zh">简单、真实地记录建议、想法或内部反馈。</p>
+<p class="en">Share a suggestion, thought or internal note.</p>
+<form id="guestbookForm">
+<div class="gb-field"><label for="nickname">昵称</label><input class="gb-input" id="nickname" maxlength="20" autocomplete="nickname" placeholder="你的昵称" required></div>
+<div class="gb-field"><label for="message">留言内容</label><textarea class="gb-textarea" id="message" maxlength="300" placeholder="写下你的留言…" required></textarea><div class="gb-counter" id="counter">0 / 300</div></div>
+<button class="btn primary gb-submit" id="gbSubmit" type="submit">发布留言</button>
+<div class="gb-status" id="gbStatus" aria-live="polite"></div>
+</form>
+<div class="gb-rules">无需账号 · 最多 300 字 · 两次发送至少间隔 15 秒 · 请勿填写敏感个人信息</div>
+</aside>
+
+<div class="panel gb-stream">
+<div class="gb-stream-head">
+  <div><h3 class="zh">实时留言</h3><h3 class="en">Live Messages</h3><span class="gb-live">实时同步</span></div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+    <span id="gbCount" class="tag">0 条留言</span>
+    <input id="gbSearch" class="gb-input" style="max-width:220px;padding:10px 13px" placeholder="搜索留言">
+  </div>
+</div>
+<div class="gb-list" id="gbList"><div class="gb-empty">正在连接留言板…</div></div>
+</div>
+</div>
+</section>
+</div></main>
+
+<footer class="shell"><div>Joanne · Guestbook</div><div>© 2026 Joanne. All rights reserved.</div></footer>
+<script src="../assets/js/site.js"></script>
+<script type="module" src="../assets/js/guestbook.js"></script>
+</body></html>

@@ -1,0 +1,24 @@
+Firebase 已连接版本
+
+本网站已写入以下 Firebase 项目：
+joanne1220-ab135
+
+部署前请确认：
+1. Authentication → 登录方法 → 匿名：已启用
+2. Firestore Database：已创建
+3. Firestore Rules：已发布
+4. 将压缩包内全部文件上传到 GitHub Pages 仓库根目录
+
+留言板地址：
+https://joanne1220.github.io/guestbook/
+
+测试方法：
+- 用电脑打开留言板，发布一条留言
+- 用手机或无痕窗口打开同一页面
+- 新留言应实时出现，无需刷新
+
+说明：
+- 访客无需注册或看到登录页面
+- 匿名认证在后台自动完成
+- 所有人都可以读取和新增留言
+- 访客不能修改或删除已有留言
